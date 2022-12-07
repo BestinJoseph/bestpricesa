@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  host:
+    build:
+      context: /host
+      dockerfile: Dockerfile
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - '3000:3000'
+    volumes:
+      - /usr/src/host/node_modules
+      - ./host:/usr/src/host/
