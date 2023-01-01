@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  host:
+    container_name: best-price-host
+    build:
+      context: ./host
+      dockerfile: Dockerfile
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./host:/usr/src/host"
+      - /usr/src/host/node_modules

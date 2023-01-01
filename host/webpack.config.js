@@ -36,6 +36,14 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.json$/,
+        type: 'json',
+      }
     ],
   },
 
@@ -43,24 +51,32 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "host",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        host: 'host@http://localhost:3000/remoteEntry.js'
+      },
       exposes: {
-        "Header":"./src/Layouts/Header"
+        "./Header":"./src/Layouts/Header",
+        "./PopularProducts":"./src/components/PopularProducts",
       },
       shared: {
         ...deps,
         react: {
           singleton: true,
+          eager: true, 
           requiredVersion: deps.react,
         },
         "react-dom": {
           singleton: true,
+          eager: true,
           requiredVersion: deps["react-dom"],
         },
       },
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
+      favicon: './public/favicon.png',
+      assets: './src/assets',
+      publicPath: '/',
     })
   ],
 };

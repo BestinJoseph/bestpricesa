@@ -1,0 +1,12 @@
+{
+    "cars": [
+        {"model": "", "make": "", "price": "100000", "spec": {"seater": "", "shift": "automatic", "milage": "22"}},
+        {"model": "", "make": "", "price": "105000", "spec": {"seater": "", "shift": "manual", "milage": "10"}},
+        {"model": "", "make": "", "price": "98000", "spec": {"seater": "", "shift": "manual", "milage": "23"}},
+        {"model": "", "make": "", "price": "69000", "spec": {"seater": "", "shift": "automatic", "milage": "12"}},
+        {"model": "", "make": "", "price": "110500", "spec": {"seater": "", "shift": "automatic", "milage": "22"}},
+        {"model": "", "make": "", "price": "100300", "spec": {"seater": "", "shift": "manual", "milage": "26"}},
+        {"model": "", "make": "", "price": "100000", "spec": {"seater": "", "shift": "automatic", "milage": "20"}},
+        {"model": "", "make": "", "price": "130000", "spec": {"seater": "", "shift": "automatic", "milage": "18"}}
+    ]
+}

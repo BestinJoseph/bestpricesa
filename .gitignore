@@ -1,5 +1,5 @@
 #host
 /host/node_modules
-/host/.dockerignore
-
-#navbar
+#
+/.dockerignore
+/.env
