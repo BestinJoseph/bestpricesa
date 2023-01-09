@@ -6,7 +6,7 @@ import CustomInput from '../../HelperComponents/CustomInput'
 
 const Header = () => {
     const { pathname } = useLocation()
-    const inputs = ["make", "model", "Min", "Max", "submit", ]
+    const inputs = ["make", "model", "Min", "Max", "submit", "discount" ]
 
     return (
         <React.Fragment>
