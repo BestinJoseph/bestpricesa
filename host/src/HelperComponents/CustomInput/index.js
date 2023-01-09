@@ -5,7 +5,7 @@ import styles from './CustomInputStyles'
 const CustomInput = ({types}) => {
 
     const classes = styles(types)
-    console.log(types)
+    // console.log(types)
 
     return (
         <input 

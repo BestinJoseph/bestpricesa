@@ -41,7 +41,7 @@ const Header = () => {
                                 <div style={{display: 'grid', gridTemplateColumns: `repeat(${inputs.length}, 1fr)` }}>
                                     {
                                         inputs.map((input, i) => (
-                                            <CustomInput types={input} key={i} style={{}} />
+                                            <CustomInput types={input} key={i} />
                                         ))
                                     }
                                 </div>
