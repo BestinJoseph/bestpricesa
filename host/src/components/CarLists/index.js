@@ -15,8 +15,12 @@ const CarLists = () => {
     const navigate = useNavigate()
     
     // console.log(Cars.cars)
-    const handleCarBtn = () => {
-        navigate('/cars/hello')
+
+    const handleCarBtn = (car) => {
+        setTimeout(() => {
+            console.log('nice...')
+            navigate("/cars/nice")
+        }, 5000)
     }
 
     return (

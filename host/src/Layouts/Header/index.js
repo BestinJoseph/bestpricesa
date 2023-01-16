@@ -1,17 +1,24 @@
-import React from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useLocation, Link, useParams } from 'react-router-dom'
 
 import NavBar from '../../components/NavBar'
 import CustomInput from '../../HelperComponents/CustomInput'
 
 const Header = () => {
-    const { pathname } = useLocation()
-    const inputs = ["make", "model", "Min", "Max", "submit", "discount" ]
+    const location = useLocation()
+    const inputs = ["make", "model", "Min", "Max", "discount", "submit"]
+    const params = useParams()
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    },[location.pathname])
+
+    console.log(params)
 
     return (
         <React.Fragment>
             {
-                pathname && pathname === '/' ? (
+                location.pathname && location.pathname === '/' ? (
                     <div style={{ display: 'flex', margin: '0 auto', width: '80vw', height: '25rem', }}>
                         <div style={{width: '50%', display: 'flex', alignItems: 'center',  }}>
                             <div  style={{ border: '1px solid violet', borderRadius: '.75rem', padding: '2rem', width: '80%', }}>

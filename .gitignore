@@ -1,5 +1,7 @@
 #host
 /host/node_modules
+/dealers/node_modules
+/admin/node_modules
 #
 /.dockerignore
 /.env
