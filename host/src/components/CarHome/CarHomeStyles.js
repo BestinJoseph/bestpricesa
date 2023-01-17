@@ -2,7 +2,6 @@ import { createUseStyles } from "react-jss"
 
 export default createUseStyles({
     carHomeContainer: {
-        width: '80%',
         // height: '35rem',
         // background: 'yellow',
         margin: '1rem auto 5rem auto',
@@ -25,6 +24,8 @@ export default createUseStyles({
     },
 
     carHomeInnerSection: {
+        margin: '1rem auto 5rem auto',
+        width: '80%',
         marginTop: '3rem',
 
     },
@@ -36,13 +37,15 @@ export default createUseStyles({
         gridAutoFlow: 'column',
         overflow: 'hidden',
         marginTop: '4rem',
+        height: '22rem',
+        width: '100%',
 
         '& > :nth-child(n)': {
             background: 'red',
             // marginBottom: '2rem',
             // border: '1px solid green',
-            height: '11rem',
-            width: '20rem',
+            height: 'auto',
+            width: '30rem',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -63,16 +66,34 @@ export default createUseStyles({
             gridRowEnd: 3,
             background: 'yellow',
             width: '40rem',
-            height: '22rem',
+            // height: '22rem',
         },
 
         '&:hover': {
-            overflow: 'unset'
-        }
+            // overflow: 'unset'
+        },
     },
 
     carHomeSpecification: {
         marginTop: '3rem',
+        
+        '&:after': {
+            content: '""',
+            position: 'absolute',
+            bottom: '-2rem',
+            left: 0,
+            width: '100%',
+            height: '2rem',
+            boxShadow: '-2px 0 white, 2px 0 white, 0 2px 2px 0px gray',
+        }
+    },
+
+    carHomeOverView: {
+        width: '80%', 
+        margin: '3rem auto',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gridGap: '3rem',
     }
 
 })

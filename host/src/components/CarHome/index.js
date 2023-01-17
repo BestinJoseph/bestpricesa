@@ -1,12 +1,13 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import CarHomeStyles from './CarHomeStyles'
+import CarOverview from './CarOverview'
 
 const CarHome = () => {
     const location = useLocation()
     const classes = CarHomeStyles()
-    const breadCrumbs = ['Home', 'Cars', ]
+    const breadCrumbs = [{name: 'Home', link: '/'}, {name: 'Cars', link: '/cars'}, ]
     const dealers = ['dealer One', 'dealer two', 'dealer three']
     const specs = ["Overview","Features & Specs","History & Inspection","Warranty","Ratings & Reviews"]
 
@@ -14,15 +15,15 @@ const CarHome = () => {
 
     return (
         <div className={classes.carHomeContainer} >
-            <ul className={classes.carHomeBreadCrumb}>
-                {
-                    breadCrumbs && breadCrumbs.map((bc, i) => (
-                        <li key={i}>{bc}</li>
-                    ))
-                }
-                <li>Chevy Spark - Top vairent</li>
-            </ul>
             <div className={classes.carHomeInnerSection} >
+                <ul className={classes.carHomeBreadCrumb}>
+                    {
+                        breadCrumbs && breadCrumbs.map((bc, i) => (
+                            <li key={i}><Link to={bc.link}>{bc.name}</Link></li>
+                        ))
+                    }
+                    <li>Chevy Spark - Top vairent</li>
+                </ul>
                 <div  style={{display: 'flex', justifyContent: 'space-between', }}>
                     <div>
                         <div  style={{display: 'flex', alignItems: 'flex-end', marginBottom: '.75rem', }}>
@@ -44,26 +45,27 @@ const CarHome = () => {
                         }
                     </div>
                 </div>
-                <div className={classes.carHomeImages}>
-                        <div>nice</div>
-                        <div>love</div>
-                        <div>life</div>
-                        <div>hate</div>
-                        <div>done</div>
-                        <div>gone</div>
-                        <div>well</div>
-                </div>
-                <div className={classes.carHomeSpecification}>
-                    <ul style={{ display: 'flex', listStyle: 'none', padding: '0 0 1rem 0', borderBottom: '1px solid blue',  }}>
-                        {
-                            specs.map((spec, j)=>(
-                                <div key={j} style={{ padding: '.5rem 4rem', cursor: 'pointer'}}>{spec}</div>
-                            ))
-                        }
-                        <li></li>
-                    </ul>
-                    <div></div>
-                </div>
+            </div>
+            <div className={classes.carHomeImages}>
+                <div>nice</div>
+                <div>love</div>
+                <div>life</div>
+                <div>hate</div>
+                <div>done</div>
+                <div>gone</div>
+                <div>well</div>
+            </div>
+            <div className={classes.carHomeSpecification}>
+                <ul style={{ display: 'flex', listStyle: 'none', padding: '0 0 2rem 0', width: '80%', margin: '0 auto', }}>
+                    {
+                        specs.map((spec, j)=>(
+                            <div key={j} style={{ padding: '.5rem 3rem', cursor: 'pointer'}}>{spec}</div>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div>
+                <CarOverview />
             </div>
         </div>
     )

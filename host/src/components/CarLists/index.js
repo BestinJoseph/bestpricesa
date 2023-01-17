@@ -17,10 +17,7 @@ const CarLists = () => {
     // console.log(Cars.cars)
 
     const handleCarBtn = (car) => {
-        setTimeout(() => {
-            console.log('nice...')
-            navigate("/cars/nice")
-        }, 5000)
+        navigate("/cars/nice")
     }
 
     return (
