@@ -7,7 +7,7 @@ import CustomInput from '../../HelperComponents/CustomInput'
 
 const Header = () => {
     const location = useLocation()
-    const inputs = ["make", "model", "variant", "Min", "Max", "submit"]
+    const inputs = ["make", "model", "variant", "Min", "Max"]
     const params = useParams()
     const users = useSelector( state => state.users )
 
@@ -21,7 +21,7 @@ const Header = () => {
         <React.Fragment>
             {
                 location.pathname && location.pathname === '/' ? (
-                    <div style={{ display: 'flex', margin: '0 auto', width: '80vw', height: '25rem', }}>
+                    <div style={{ display: 'flex', margin: '0 auto', width: '80%', height: '25rem', }}>
                         <div style={{width: '50%', display: 'flex', alignItems: 'center',  }}>
                             <div  style={{ border: '1px solid violet', borderRadius: '.75rem', padding: '2rem', width: '80%', }}>
                                 <h2 style={{ paddingBottom: '1.5rem', color: 'violet', }}>Best Price</h2>
@@ -40,16 +40,19 @@ const Header = () => {
                     </div>
                 ) : (
                     <React.Fragment>
-                        <div style={{width: '80vw', margin: '0 auto', display: 'grid', gridTemplateRows: 'auto 3fr', }}>
+                        <div style={{width: '80%', margin: '0 auto', display: 'grid', gridTemplateRows: 'auto 3fr', }}>
                             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', }}>
-                                <h1><Link to="/" style={{color: 'violet', textDecorationLine: 'none', }}>BestPrice</Link></h1>
+                                <div style={{display: 'flex', alignItems: 'center', }}>
+                                    <h1 style={{marginRight: '1rem', }}><Link to="/" style={{color: 'violet', textDecorationLine: 'none', }}>BestPrice</Link></h1>
+                                    <p>Riyadh</p>
+                                </div>
                                 <NavBar />
                             </div>
                             <div style={{border: 'none', marginTop: '2rem', }}>
                                 <div style={{marginBottom: '1rem', }}>
                                     <h3>Make and Type</h3>
                                 </div>
-                                <div style={{display: 'grid', gridTemplateColumns: `repeat(${inputs.length}, 1fr)`, gridGap: '1rem', }}>
+                                <div style={{display: 'grid', gridTemplateColumns: `repeat(${inputs.length}, 1fr)`, gridGap: '.5rem', }}>
                                     {
                                         inputs.map((input, i) => ( 
                                             <CustomInput types={input} key={i}/> 

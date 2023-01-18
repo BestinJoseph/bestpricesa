@@ -45,7 +45,7 @@ const NavBar = () => {
                     ) : (
                         <div style={{ display: 'flex', background: '#F5EBE0', padding: '0 2rem', borderRadius: '.25rem', height: '3rem', alignItems: 'center', justifyContent: 'center'}}>
                             <ul style={{listStyle: 'none', borderRight: '1px solid blue', paddingLeft: 0, }}>
-                                <li style={{paddingRight: '2rem', }}>Car</li>
+                                <li style={{paddingRight: '2rem', }}>Cars</li>
                             </ul>
                             <ul style={{listStyle: 'none', display: 'flex', paddingLeft: '2rem', }}>
                                 {

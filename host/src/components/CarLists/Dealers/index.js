@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import riyadh from '../../../assets/images/riyadh.png'
 import location from '../../../assets/images/location.png'
@@ -9,12 +10,18 @@ import DealersStyles from './DealersStyles'
 export const Dealers = () => {
     const dealers = [dealer001, dealer002, dealer003, dealer004, dealer005, dealer006, dealer007]
     const classes = DealersStyles()
+    const navigate = useNavigate()
+
+    const handleDealer = (deal) => {
+        console.log('nice.')
+        navigate('/dealers/' + deal)
+    }
 
     return (
-        <div style={{display: 'grid', gridTemplateColumns: `repeat(${dealers.length}, 1fr)`, overflow: 'hidden', height: '100%'}}>
+        <div className={classes.dealerContainer}>
             {
                 dealers.map( (deal, i) => (
-                    <div style={{ width: '5rem', padding: '.75rem', border: '1px solid gray', marginRight: '.1rem', }} key={i}>
+                    <div className={classes.dealerItem} key={i} onClick={() => handleDealer(i)}>
                         <div style={{ paddingBottom: '1rem', }}>
                             <p style={{ fontSize: '.75rem', color: 'gray', }}>SAR</p>
                             <h3>{ Math.floor(Math.random() * 999999 ) + 100000 }</h3>
