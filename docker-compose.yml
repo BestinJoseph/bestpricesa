@@ -13,27 +13,27 @@ services:
     volumes:
       - "./host:/usr/src/host"
       - /usr/src/host/node_modules
-  dealers:
-    container_name: best-price-dealers
-    build:
-      context: ./dealers
-      dockerfile: Dockerfile
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    ports:
-      - "3001:3001"
-    volumes:
-      - "./dealers:/usr/src/dealers"
-      - /usr/src/host/node_modules
-  admin:
-    container_name: best-price-admin
-    build:
-      context: ./admin
-      dockerfile: Dockerfile
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    ports:
-      - "3002:3002"
-    volumes:
-      - "./admin:/usr/src/admin"
-      - /usr/src/host/node_modules
+  # dealers:
+  #   container_name: best-price-dealers
+  #   build:
+  #     context: ./dealers
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+  #   ports:
+  #     - "3001:3001"
+  #   volumes:
+  #     - "./dealers:/usr/src/dealers"
+  #     - /usr/src/host/node_modules
+  # admin:
+  #   container_name: best-price-admin
+  #   build:
+  #     context: ./admin
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+  #   ports:
+  #     - "3002:3002"
+  #   volumes:
+  #     - "./admin:/usr/src/admin"
+  #     - /usr/src/host/node_modules

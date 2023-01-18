@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useLocation, Link, useParams } from 'react-router-dom'
 
 import NavBar from '../../components/NavBar'
@@ -6,14 +7,15 @@ import CustomInput from '../../HelperComponents/CustomInput'
 
 const Header = () => {
     const location = useLocation()
-    const inputs = ["make", "model", "Min", "Max", "discount", "submit"]
+    const inputs = ["make", "model", "variant", "Min", "Max", "submit"]
     const params = useParams()
+    const users = useSelector( state => state.users )
 
     useEffect(() => {
         window.scrollTo(0,0)
     },[location.pathname])
 
-    console.log(params)
+    // console.log(users)
 
     return (
         <React.Fragment>
@@ -31,7 +33,9 @@ const Header = () => {
                             </div>
                         </div>
                         <div style={{width: '50%', }}>
-                            <NavBar />
+                            {
+                                users && <NavBar users={users} well={"nice"} />
+                            }
                         </div>
                     </div>
                 ) : (
@@ -41,14 +45,14 @@ const Header = () => {
                                 <h1><Link to="/" style={{color: 'violet', textDecorationLine: 'none', }}>BestPrice</Link></h1>
                                 <NavBar />
                             </div>
-                            <div style={{border: 'none', marginTop: '5rem', }}>
+                            <div style={{border: 'none', marginTop: '2rem', }}>
                                 <div style={{marginBottom: '1rem', }}>
                                     <h3>Make and Type</h3>
                                 </div>
-                                <div style={{display: 'grid', gridTemplateColumns: `repeat(${inputs.length}, 1fr)` }}>
+                                <div style={{display: 'grid', gridTemplateColumns: `repeat(${inputs.length}, 1fr)`, gridGap: '1rem', }}>
                                     {
-                                        inputs.map((input, i) => (
-                                            <CustomInput types={input} key={i} />
+                                        inputs.map((input, i) => ( 
+                                            <CustomInput types={input} key={i}/> 
                                         ))
                                     }
                                 </div>

@@ -1,9 +1,23 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
+import { userLogin, userLogout } from '../../Actions'
 
 const NavBar = () => {
     const { pathname } = useLocation()
     const navList = ["Expert Reviews", "Sales", "Guides", "How to use", "About Us"]
+    const users = useSelector( state => state.users)
+    const dispatch = useDispatch()
+
+    const handleSignIn = () => {
+        dispatch(userLogin())
+    }
+
+    const handleSignOff = () => {
+        dispatch(userLogout())
+    }
+
+    console.log(users)
 
     return (
         <React.Fragment>
@@ -25,7 +39,7 @@ const NavBar = () => {
                                 }
                             </ul>
                             <ul style={{listStyle: 'none', borderLeft: '1px solid blue', paddingLeft: '2rem', }}>
-                                <li>Sing In</li>
+                                { users.isAuthenticated === 'true' ? <li onClick={handleSignOff} style={{cursor: 'pointer', }}>Log Out</li> : <li onClick={handleSignIn} style={{cursor: 'pointer', }}>Sing In</li> }
                             </ul>
                         </div>
                     ) : (
@@ -45,7 +59,7 @@ const NavBar = () => {
                                 }
                             </ul>
                             <ul style={{listStyle: 'none', borderLeft: '1px solid blue', paddingLeft: '2rem', }}>
-                                <li>Sing In</li>
+                                { users.isAuthenticated === 'true' ? <li onClick={handleSignOff} style={{cursor: 'pointer', }}>Log Out</li> : <li onClick={handleSignIn} style={{cursor: 'pointer', }}>Sing In</li> }
                             </ul>
                         </div>
                     )
