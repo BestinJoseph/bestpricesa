@@ -37,14 +37,15 @@ export default createUseStyles({
         gridAutoFlow: 'column',
         overflow: 'hidden',
         marginTop: '4rem',
-        height: '22rem',
+        height: '30rem',
         width: '100%',
+        overflowX: 'scroll',
 
         '& > :nth-child(n)': {
             background: 'red',
             // marginBottom: '2rem',
             // border: '1px solid green',
-            height: 'auto',
+            height: '15rem',
             width: '30rem',
             display: 'flex',
             justifyContent: 'center',
@@ -66,7 +67,7 @@ export default createUseStyles({
             gridRowEnd: 3,
             background: 'yellow',
             width: '40rem',
-            // height: '22rem',
+            height: '30rem',
         },
 
         '&:hover': {
@@ -76,15 +77,21 @@ export default createUseStyles({
 
     carHomeSpecification: {
         marginTop: '3rem',
+        position: 'relative',
         
         '&:after': {
             content: '""',
             position: 'absolute',
-            bottom: '-2rem',
+            bottom: '0rem',
             left: 0,
             width: '100%',
             height: '2rem',
             boxShadow: '-2px 0 white, 2px 0 white, 0 2px 2px 0px gray',
+        },
+
+        '&:active': {
+            borderBottom: '1px solid blue',
+
         }
     },
 
