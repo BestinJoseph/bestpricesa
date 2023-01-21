@@ -52,7 +52,7 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        host: 'host@http://localhost:3000/remoteEntry.js'
+        // host: 'host@http://localhost:3000/remoteEntry.js'
       },
       exposes: {
         "./Header":"./src/Layouts/Header",
