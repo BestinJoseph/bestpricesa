@@ -21,9 +21,6 @@ const CarLists = () => {
         navigate("/cars/nice")
     }
 
-    // console.log(process.env)
-    console.log(cars)
-
     return (
         <div style={{ margin: '3rem 0', }}>
             {

@@ -9,12 +9,10 @@ export const getAllCars = () => async (dispatch) => {
 export const getFilterCars = (search) => async (dispatch) => {
     const cars = Cars.cars
     let filteredCars = []
-
     if( search.make !== '' ) {
-        filteredCars = cars.filter( (car) => car.make === search.make)
+        filteredCars = cars.filter( (car) => car.make.toLowerCase().includes(search.make.toLowerCase()))
         dispatch({type: 'GET_FILTERED_CARS', payload: filteredCars})
     } else {
-        console.log('wel done.')
         dispatch({type: 'GET_ALL_CARS', payload: cars})
     }
 }
