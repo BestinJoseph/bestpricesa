@@ -2,7 +2,6 @@ import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Cars from './Cars.json'
 import { Dealers } from './Dealers'
 
 import CarListsStyles from './CarListsStyles'
@@ -22,7 +21,7 @@ const CarLists = () => {
         navigate("/cars/nice")
     }
 
-    console.log(cars.length > 0)
+    // console.log(process.env)
     console.log(cars)
 
     return (

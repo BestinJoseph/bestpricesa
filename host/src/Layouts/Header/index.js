@@ -42,7 +42,7 @@ const Header = () => {
                                 <h1 style={{ paddingBottom: '1.25rem'}}>Compare prices on 2.6 million products from 6 100 UK shops</h1>
                                 <div style={{display: 'flex', }}>
                                     <input type="text" style={{width: '80%', padding: '.5rem', fontSize: '1.5rem', borderRadius: '5px', marginRight: '1rem', }}/>
-                                    <h>Search</h>
+                                    <h5>Search</h5>
                                 </div>
                             </div>
                         </div>
