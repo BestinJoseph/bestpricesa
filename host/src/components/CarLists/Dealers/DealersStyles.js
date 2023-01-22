@@ -15,7 +15,7 @@ export default createUseStyles((theme)=>({
     },
     dealerItem: {
         width: '5rem', 
-        padding: '.75rem', 
+        padding: '1rem .75rem', 
         border: '1px solid gray', 
         marginRight: '.1rem',
         cursor: 'pointer',

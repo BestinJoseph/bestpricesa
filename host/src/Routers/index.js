@@ -1,5 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, hashHistory } from 'react-router-dom'
+
+import ScrollToTop from './ScrollToTop'
 
 import Header from '../Layouts/Header'
 import Footer from '../Layouts/Footer'
@@ -12,7 +14,8 @@ import DealerHome from '../components/DealerHome'
 const Routers = () => {
 
     return (
-        <Router>
+        <Router history={hashHistory}>
+            <ScrollToTop />
             <Header />
             <Routes>
                 <Route path="/" element={<Home />}/>

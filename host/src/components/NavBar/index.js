@@ -5,7 +5,7 @@ import { userLogin, userLogout } from '../../Actions'
 
 const NavBar = () => {
     const { pathname } = useLocation()
-    const navList = ["Expert Reviews", "Sales", "Guides", "How to use", "About Us"]
+    const navList = ["Expert Reviews", "Our Guides", "How to use", "About Us"]
     const users = useSelector( state => state.users)
     const dispatch = useDispatch()
 
@@ -17,7 +17,7 @@ const NavBar = () => {
         dispatch(userLogout())
     }
 
-    console.log(users)
+    // console.log(users)
 
     return (
         <React.Fragment>

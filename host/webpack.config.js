@@ -2,9 +2,12 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const deps = require("./package.json").dependencies;
+
+const urlPath = process.argv.indexOf('development') !== -1 ? "http://localhost:3000/" : "https://dazzling-sawine-7fa7e2.netlify.app/"
+
 module.exports = {
   output: {
-    publicPath: "https://dazzling-sawine-7fa7e2.netlify.app/",
+    publicPath: urlPath,
   },
 
   resolve: {
@@ -38,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-        type: 'asset/resource',
+        type: 'asset/resource'
       },
       {
         test: /\.json$/,
