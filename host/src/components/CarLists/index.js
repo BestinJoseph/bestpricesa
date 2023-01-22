@@ -28,7 +28,7 @@ const CarLists = () => {
                     <div className={classes.carItemContainer} key={i}>
                         <div style={{padding: '1rem 0rem 3rem 0rem', display: 'flex', }}>
                             <div style={{width: '30%', marginRight: '2rem', display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
-                                <img src="cars/001.webp" alt={car.model} width="300px" height="auto" className={classes.carItemImage} />
+                                <img src="cars/002.jpg" alt={car.model} width="300px" height="auto" className={classes.carItemImage} />
                             </div>
                             <div style={{width: '30%', }}>
                                 <h6 style={{ padding: '7px 15px', background: '#FCD271', borderRadius: '15px', display: 'inline-block', color: '#C00000', marginBottom: '.5rem', }}>Top Pick</h6>
