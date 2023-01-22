@@ -9,10 +9,39 @@ export const getAllCars = () => async (dispatch) => {
 export const getFilterCars = (search) => async (dispatch) => {
     const cars = Cars.cars
     let filteredCars = []
-    if( search.make !== '' ) {
-        filteredCars = cars.filter( (car) => car.make.toLowerCase().includes(search.make.toLowerCase()))
-        dispatch({type: 'GET_FILTERED_CARS', payload: filteredCars})
-    } else {
-        dispatch({type: 'GET_ALL_CARS', payload: cars})
-    }
+
+    filteredCars = cars.filter( (car) => {
+        return Object.keys(search).every( key => {
+            switch (key) {
+                case 'make':
+                    if(search[key] !== '') {
+                        return car[key].toLowerCase().includes(search[key]) ? car : null
+                    } else {
+                        return cars
+                    }
+                case 'model':
+                    if(search[key] !== '') {
+                        return car[key].toLowerCase().includes(search[key]) ? car : null
+                    } else {
+                        return filteredCars
+                    }
+                case 'min':
+                    if(search[key] !== '') {
+                        return car.price >= parseInt(search[key]) ? car : null
+                    } else {
+                        return filteredCars
+                    }
+                case 'max':
+                    if(search[key] !== '') {
+                        return car.price <= parseInt(search[key]) ? car : null
+                    } else {
+                        return filteredCars
+                    }
+                default:
+                    return car
+            }
+        } )
+    })
+
+    dispatch({type: 'GET_FILTERED_CARS', payload: filteredCars})
 }
