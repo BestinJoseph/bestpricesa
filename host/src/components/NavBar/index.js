@@ -5,7 +5,7 @@ import { BsHeart } from 'react-icons/bs'
 import { MdNotificationsNone } from 'react-icons/md'
 import { VscAccount, VscChromeClose } from 'react-icons/vsc'
 
-import { userLogin, userLogout } from '../../Actions'
+import { userLogin, } from '../../Actions'
 import NavBarStyles from './NavBarStyles'
 
 const NavBar = () => {
