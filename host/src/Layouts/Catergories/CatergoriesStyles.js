@@ -18,7 +18,7 @@ export default createUseStyles({
 
     categoriesIcon: {
         color: '#FCD271',
-        fontSize: '2rem',
+        fontSize: '3rem',
 
         '&:hover': {
             // color: 'yellow',

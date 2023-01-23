@@ -10,6 +10,8 @@ import About from '../components/About'
 import CarLists from '../components/CarLists'
 import CarHome from '../components/CarHome'
 import DealerHome from '../components/DealerHome'
+import UserAccount from '../components/UserAccount'
+import Page404 from '../components/Page404'
 
 const Routers = () => {
 
@@ -19,11 +21,14 @@ const Routers = () => {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />}/>
-                <Route path="/cars" element={<CarLists />}/>
-                <Route path="/cars/:car" element={<CarHome />}/>
+                <Route path="/catergories" element={<CarLists />}/>
+                <Route path="/catergories/:cat" element={<CarLists />}/>
+                <Route path="/catergories/:cat/:item" element={<CarHome />}/>
                 <Route path="/dealers" element={<DealerHome />}/>
                 <Route path="/dealers/:dealer" element={<Home />}/>
                 <Route path="/about" element={<About />}/>
+                <Route path="/user" element={<UserAccount />}/>
+                <Route path="/*" element={<Page404 />}/>
             </Routes>
             <Footer />
         </Router>

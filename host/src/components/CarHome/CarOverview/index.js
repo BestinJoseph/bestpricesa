@@ -66,7 +66,7 @@ const CarOverview = () => {
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', marginTop: '2rem',  borderTop: '1px solid gray', paddingTop: '3rem', }}>
                                 {
                                     feature.map((fea, i) => (
-                                        <p style={{ marginBottom: '2rem', }}>{fea}</p>
+                                        <p style={{ marginBottom: '2rem', }} key={i}>{fea}</p>
                                     ))
                                 }
                             </div>

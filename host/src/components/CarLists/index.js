@@ -1,34 +1,39 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Dealers } from './Dealers'
 
 import CarListsStyles from './CarListsStyles'
 import { getAllCars } from '../../Actions/searchAction'
+import SearchBox from '../../Layouts/SearchBox'
 
 const CarLists = () => {
     const classes = CarListsStyles()
     const navigate = useNavigate()
     const { cars } = useSelector( state => state.cars )
     const dispatch = useDispatch()
+    const params = useParams()
 
     useLayoutEffect(()=>{
         dispatch(getAllCars())
     },[dispatch])
 
     const handleCarBtn = (car) => {
-        navigate("/cars/nice")
+        navigate(`/catergories/cars/${car}`)
     }
 
     return (
         <div style={{ margin: '3rem 0', }}>
+            <div style={{border: 'none', margin: '0 auto', width: '80%' }}>
+                <SearchBox />                                
+            </div>
             {
                 cars.length > 0 ? cars.map( (car, i) => (
                     <div className={classes.carItemContainer} key={i}>
                         <div style={{padding: '1rem 0rem 3rem 0rem', display: 'flex', }}>
                             <div style={{width: '30%', marginRight: '2rem', display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
-                                <img src="cars/002.jpg" alt={car.model} width="300px" height="auto" className={classes.carItemImage} />
+                                <img src={`/cars/${car.image}`} alt={car.model} width="300px" height="auto" className={classes.carItemImage} />
                             </div>
                             <div style={{width: '30%', }}>
                                 <h6 style={{ padding: '7px 15px', background: '#FCD271', borderRadius: '15px', display: 'inline-block', color: '#C00000', marginBottom: '.5rem', }}>Top Pick</h6>
@@ -51,7 +56,7 @@ const CarLists = () => {
                                         </div>
                                         <p>Free Test Drive</p>
                                     </div>
-                                    <div className={classes.carlistBtnContainer} onClick={handleCarBtn}>
+                                    <div className={classes.carlistBtnContainer} onClick={() => handleCarBtn(car.model)}>
                                         <p style={{fontSize: '1rem', fontWeight: '700', }}>view more</p>
                                     </div>
                                 </div>

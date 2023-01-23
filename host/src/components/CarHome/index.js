@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import CarHomeStyles from './CarHomeStyles'
 import CarOverview from './CarOverview'
@@ -7,15 +7,21 @@ import CarOverview from './CarOverview'
 import { rr001, rr002, rr003, rr004, rr005, rr006, rr007, rr008, rr009 } from '../../assets/images/landrover'
 
 const CarHome = () => {
-    const location = useLocation()
+    const navigate = useNavigate()
     const classes = CarHomeStyles()
-    const breadCrumbs = [{name: 'Home', link: '/'}, {name: 'Cars', link: '/cars'}, ]
+    const breadCrumbs = [{name: 'Home', link: '/'}, {name: 'Cars', link: '/catergories/cars'}, ]
     const dealers = ['dealer One', 'dealer two', 'dealer three', 'dealer four', 'dealer three']
     const specs = ["Overview","Features & Specs","History & Inspection","Warranty","Ratings & Reviews"]
     const [specStyle, setSpecStyle] = useState('Overview')
     const images = [rr001, rr002, rr003, rr004, rr005, rr006, rr007, rr008, rr009]
+    // const params = useParams()
 
-    // console.log(location)
+    // console.log(params)
+
+    const handleBreadCrumbs = (linked) => {
+        console.log(linked)
+        navigate(linked.link)
+    }
 
     return (
         <div className={classes.carHomeContainer} >
@@ -23,7 +29,7 @@ const CarHome = () => {
                 <ul className={classes.carHomeBreadCrumb}>
                     {
                         breadCrumbs && breadCrumbs.map((bc, i) => (
-                            <li key={i}><Link to={bc.link}>{bc.name}</Link></li>
+                            <li key={i}><p onClick={() => handleBreadCrumbs(bc)}>{bc.name}</p></li>
                         ))
                     }
                     <li>Chevy Spark - Top vairent</li>
