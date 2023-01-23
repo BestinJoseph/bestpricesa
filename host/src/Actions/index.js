@@ -1,7 +1,13 @@
+import Users from '../assets/data/users'
 
-
-export const userLogin = () => (dispatch) => {
-    dispatch({type: 'LOGIN_USER', payload: 'cool'})
+export const userLogin = ({email, password}) => (dispatch) => {
+    Users.users.forEach( (user) => {
+        if(user.email === email) {
+            if(user.password === password) {
+                dispatch({type: 'LOGIN_USER', payload: user})
+            }
+        }
+    })
 }
 
 export const userLogout = () => (dispatch) => {

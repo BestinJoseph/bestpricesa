@@ -1,7 +1,7 @@
 {
   "name": "host",
   "version": "1.0.0",
-  "homepage": ".",
+  "homepage": "http://localhost:3000/",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",

@@ -4,7 +4,7 @@ import background from '../../assets/images/banner.jpg'
 
 export default createUseStyles({
     bannerContainer: {
-        background: `url(${background})`,
+        backgroundImage: `url('/assets/images/banner.jpg')`,
         backgroundSize: '100%',
         backgroundPositionY: 'center',
         

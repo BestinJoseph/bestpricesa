@@ -55,7 +55,7 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        // host: 'host@http://localhost:3000/remoteEntry.js'
+        host: `host@${urlPath}remoteEntry.js`
       },
       exposes: {
         "./Header":"./src/Layouts/Header",
@@ -79,7 +79,7 @@ module.exports = {
       template: "./src/index.html",
       favicon: './public/favicon.png',
       assets: './src/assets',
-      publicPath: '/',
+      publicPath: urlPath,
     })
   ],
 };

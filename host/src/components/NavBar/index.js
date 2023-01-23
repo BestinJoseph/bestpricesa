@@ -9,17 +9,20 @@ import { userLogin, } from '../../Actions'
 import NavBarStyles from './NavBarStyles'
 
 const NavBar = () => {
-    const { pathname } = useLocation()
     const navList = ["Expert Reviews", "Our Guides", "How to use", "About Us"]
     const users = useSelector( state => state.users)
     const dispatch = useDispatch()
     const classes = NavBarStyles()
     const [login, setLogin] = useState(false)
     const navigate = useNavigate()
+    const [auth, setAuth] = useState({email: '', password: ''})
 
     const handleSignIn = () => {
-        setLogin(false)
-        dispatch(userLogin())
+        if(auth.email !== '' && auth.password !== '') {
+            dispatch(userLogin(auth))
+            setAuth({email: '', password: ''})
+            setLogin(false)
+        }
     }
 
     const handleUserAccount = () => {
@@ -28,7 +31,7 @@ const NavBar = () => {
         // dispatch(userLogout())
     }
 
-    console.log(pathname)
+    // console.log(users)
 
     return (
         <div className={classes.navContainer}>
@@ -52,7 +55,7 @@ const NavBar = () => {
                     }
                 </ul>
                 <ul style={{listStyle: 'none', borderLeft: '1px solid #FCD271', paddingLeft: '2rem', }}>
-                    { users.isAuthenticated === 'true' ? 
+                    { users.isAuthenticated === true ? 
                         <div style={{display:'flex', alignItems: 'center', }}>
                             <li style={{cursor: 'pointer', marginRight: '1rem', height: '1.15rem', }}>
                                 <BsHeart style={{fontSize: '1.15rem', color: 'black', }} />
@@ -74,9 +77,9 @@ const NavBar = () => {
                     <h3 style={{  }}>Login</h3>
                     <VscChromeClose style={{ cursor: 'pointer', fontSize: '1.2rem', }} onClick={() => setLogin(false)} />
                 </div>
-                <input type="text" placeholder="username" style={{ width: '15rem', padding: '.5rem', marginBottom: '1rem', fontSize: '1rem', }} /><br />
-                <input type="text" placeholder="password" style={{ width: '15rem', padding: '.5rem', marginBottom: '1rem', fontSize: '1rem', }} /><br />
-                <input type="submit" value="Login" className={classes.loginBtn} onClick={handleSignIn} />
+                <input type="text" onChange={(e) => setAuth( prev => ({ ...prev, email: e.target.value }))} placeholder="username" style={{ width: '15rem', padding: '.5rem', marginBottom: '1rem', fontSize: '1rem', }} /><br />
+                <input type="password" onChange={(e) => setAuth( prev => ({ ...prev, password: e.target.value }))} placeholder="password" style={{ width: '15rem', padding: '.5rem', marginBottom: '1rem', fontSize: '1rem', }} /><br />
+                <input type="submit" value="Login" className={classes.loginBtn} onClick={() => handleSignIn()} />
             </div>
         </div>
     )
