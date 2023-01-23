@@ -36,5 +36,14 @@
         {"_id": "005", "location": "", "name": "", "logo": "005.jpg" },
         {"_id": "006", "location": "", "name": "", "logo": "006.jpg" },
         {"_id": "007", "location": "", "name": "", "logo": "007.jpg" }
+    ],
+    "populars": [
+        {"_id": "car011", "model": "Corolla", "make": "Toyota", "price": "100000", "image": "011.webp", "spec": {"seater": "4", "shift": "automatic", "milage": "22"}, "dealerIds": []},
+        {"_id": "car018", "model": "Yaris", "make": "Toyota", "price": "130000", "image": "018.jpg", "spec": {"seater": "4", "shift": "automatic", "milage": "18"}, "dealerIds": []},
+        {"_id": "car026", "model": "Accent", "make": "Hyundai", "price": "130000", "image": "026.jpg", "spec": {"seater": "4", "shift": "automatic", "milage": "18"}, "dealerIds": []},
+        {"_id": "car027", "model": "Elantra", "make": "Hyundai", "price": "130000", "image": "027.jpg", "spec": {"seater": "4", "shift": "automatic", "milage": "18"}, "dealerIds": []},
+        {"_id": "car004", "model": "Malibu", "make": "Chevrolet", "price": "69000", "image": "004.webp", "spec": {"seater": "4", "shift": "automatic", "milage": "12"}, "dealerIds": []},
+        {"_id": "car004", "model": "Malibu", "make": "Chevrolet", "price": "69000", "image": "004.webp", "spec": {"seater": "4", "shift": "automatic", "milage": "12"}, "dealers": []},
+        {"_id": "car012", "model": "Camry", "make": "Toyota", "price": "105000", "image": "012.jpg", "spec": {"seater": "4", "shift": "manual", "milage": "10"}, "dealerIds": []}        
     ]
 }

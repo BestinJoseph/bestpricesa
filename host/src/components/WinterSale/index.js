@@ -1,11 +1,14 @@
 import React from 'react'
 
+import WinterSaleStyles from './WinterSaleStyles'
+
 const WinterSale = () => {
+    const classes = WinterSaleStyles()
     return (
-        <div style={{ width: '80vw', margin: '7rem auto 5rem auto', height: '22rem', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '1.5rem', background: 'violet', color: 'white', }}>
-            <div style={{ padding: '1rem', }}>
-                <h2>Winter Sale</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <div className={classes.winterContainer} style={{ backgroundImage: `url('/assets/winter.webp')` }}>
+            <div style={{ padding: '1rem', width: '60%', textAlign: 'center', }}>
+                <h1 style={{ marginBottom: '.5rem', backgroundColor: 'rgba(0, 0, 0, .7)', display: 'inline-block', padding: '0.25rem 2rem', color: 'yellow', }}>Winter Sale</h1>
+                <p style={{ lineHeight: '1.5rem', backgroundColor: 'rgba(255, 255, 0, .25)', display: 'inline-block', padding: '0.25rem 2rem', color: 'black', }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
             </div>
         </div>
     )

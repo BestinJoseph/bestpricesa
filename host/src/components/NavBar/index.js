@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { BsHeart } from 'react-icons/bs'
 import { MdNotificationsNone } from 'react-icons/md'
-import { VscAccount } from 'react-icons/vsc'
+import { VscAccount, VscChromeClose } from 'react-icons/vsc'
 
 import { userLogin, userLogout } from '../../Actions'
 import NavBarStyles from './NavBarStyles'
@@ -40,9 +40,13 @@ const NavBar = () => {
                     {
                         navList && navList.map( (nav, i) => {
                             if (i + 1 !== navList.length) {
-                                return <li key={i} style={{paddingRight: '1rem', }}><Link to={nav.split(' ')[0].toLowerCase()} style={{ textDecoration: 'none', color: '#FCD271', fontWeight: 700, }}>{nav}</Link></li>
+                                return <li key={i} style={{paddingRight: '1rem', }}>
+                                            <Link to={nav.split(' ')[0].toLowerCase()} className={classes.navItems} >{nav}</Link>
+                                        </li>
                             } else {
-                                return <li key={i} style={{paddingRight: '2rem', }}><Link to={nav.split(' ')[0].toLowerCase()} style={{ textDecoration: 'none', color: '#FCD271', fontWeight: 700, }}>{nav}</Link></li>
+                                return <li key={i} style={{paddingRight: '2rem', }}>
+                                            <Link to={nav.split(' ')[0].toLowerCase()} className={classes.navItems} >{nav}</Link>
+                                        </li>
                             }
                         })
                     }
@@ -66,10 +70,13 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className={classes.loginContainer} style={{ display: login ? 'block' : 'none', }}>
-                <h3 style={{marginBottom: '.75rem', }}>Login</h3>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', }}>
+                    <h3 style={{  }}>Login</h3>
+                    <VscChromeClose style={{ cursor: 'pointer', fontSize: '1.2rem', }} onClick={() => setLogin(false)} />
+                </div>
                 <input type="text" placeholder="username" style={{ width: '15rem', padding: '.5rem', marginBottom: '1rem', fontSize: '1rem', }} /><br />
                 <input type="text" placeholder="password" style={{ width: '15rem', padding: '.5rem', marginBottom: '1rem', fontSize: '1rem', }} /><br />
-                <input type="submit" value="Login" style={{ padding: '.5rem 1rem', fontSize: '1rem', background: 'green', borderRadius: '5px', cursor: 'pointer' }} onClick={handleSignIn} />
+                <input type="submit" value="Login" className={classes.loginBtn} onClick={handleSignIn} />
             </div>
         </div>
     )

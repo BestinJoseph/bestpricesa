@@ -21,10 +21,10 @@ const Header = () => {
                                     users && <NavBar users={users} well={"nice"} />
                                 }
                             </div>
-                            <div style={{width: '50%', display: 'flex', alignItems: 'center', height: '22rem', }}>
+                            <div style={{width: '50%', display: 'flex', alignItems: 'center', height: '30rem', }}>
                                 <div  style={{ borderRadius: '.75rem', padding: '2rem', width: '80%', backgroundColor: 'white', boxShadow: '0 0 4px gray',  }}>
-                                    <h2 style={{ paddingBottom: '.5rem', color: '#FCD271', }}>Best Price</h2>
-                                    <h1 style={{ paddingBottom: '1.25rem', fontWeight: '400'}}>Compare prices on 2.6 million products dealer nearby</h1>
+                                    <h2 style={{ paddingBottom: '1.5rem', color: '#FCD271', }}>Best Price</h2>
+                                    <h1 style={{ paddingBottom: '2rem', fontWeight: '400'}}>Compare prices on 2.6 million products dealer nearby</h1>
                                     <div style={{display: 'flex', alignItems: 'center', }}>
                                         <input type="text" style={{width: '80%', padding: '.5rem', fontSize: '1.5rem', borderRadius: '5px', marginRight: '1rem', }} placeholder="Search your cars dealer"/>
                                         <h3 style={{background: '#FCD271', padding: '.775rem', borderRadius: '5px', cursor: 'pointer', }}>Search</h3>
