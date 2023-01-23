@@ -1,7 +1,7 @@
 {
   "name": "host",
   "version": "1.0.0",
-  "homepage": "http://localhost:3000/",
+  "homepage": "https://://dazzling-sawine-7fa7e2.netlify.app/",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
