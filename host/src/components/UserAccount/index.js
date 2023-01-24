@@ -20,7 +20,7 @@ const UserAccount = () => {
 
     return (
         <div style={{ background: 'black', paddingBottom: '4rem' }}>
-            <div className={classes.userAccountBanner} style={{ backgroundImage: `url('assets/account.jpg')`}}>
+            <div className={classes.userAccountBanner} style={{ backgroundImage: `url('/images/account.jpg')`}}>
                 <div style={{ padding: '4rem', width: '40%', }}>
                     <h1 style={{ marginBottom: '1rem', fontSize: '3.5rem', }}>Best Price offers great deal of saving</h1>
                     <p style={{ marginBottom: '1.5rem', }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem, velit! In iusto officia repellendus distinctio!</p>

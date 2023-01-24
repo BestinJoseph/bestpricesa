@@ -31,7 +31,7 @@ const NavBar = () => {
         // dispatch(userLogout())
     }
 
-    // console.log(users)
+    console.log(process.env.NODE_ENV)
 
     return (
         <div className={classes.navContainer}>
