@@ -2,6 +2,7 @@
 /host/node_modules
 /dealers/node_modules
 /admin/node_modules
+/server/node_modules
 #
 /.dockerignore
 /.env

@@ -38,3 +38,16 @@ services:
   #   volumes:
   #     - "./admin:/usr/src/admin"
   #     - /usr/src/host/node_modules
+  server:
+      container_name: best-price-serve
+      build:
+        context: ./server
+        dockerfile: Dockerfile
+      environment:
+        # - CHOKIDAR_USEPOLLING=true
+        - WATCHPACK_POLLING=true
+      ports:
+        - "8000:8000"
+      volumes:
+        - "./server:/usr/src/server"
+        - /usr/src/server/node_modules
