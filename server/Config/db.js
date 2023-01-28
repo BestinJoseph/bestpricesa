@@ -1,9 +1,8 @@
 import mongoose from "mongoose"
+import dotenv from 'dotenv'
+dotenv.config()
 
-const DB_PASSWORD = 'mypwd1234'
-const DB_CLUSTER = 'bestprice'
-
-const dbUrl = `mongodb+srv://bestin_38:${DB_PASSWORD}@cluster0.fm6rzs9.mongodb.net/?retryWrites=true&w=majority`
+const dbUrl = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.fm6rzs9.mongodb.net/${process.env.DB_DATABASE}?retryWrites=true&w=majority`
 
 mongoose.set('strictQuery', true)
 mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
