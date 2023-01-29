@@ -35,6 +35,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use(express.static('public'))
+app.use('/images', express.static('public/images'))
+
 app.use('/api', host)
 app.use('/api/auth', users)
 app.use('/api/cars', cars)
