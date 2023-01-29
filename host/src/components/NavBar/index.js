@@ -26,12 +26,11 @@ const NavBar = () => {
     }
 
     const handleUserAccount = () => {
-        console.log('nice')
         navigate('/user')
         // dispatch(userLogout())
     }
 
-    console.log(process.env.NODE_ENV)
+    // console.log(process.env.NODE_ENV)
 
     return (
         <div className={classes.navContainer}>

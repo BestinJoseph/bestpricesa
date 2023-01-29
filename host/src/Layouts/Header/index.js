@@ -8,10 +8,15 @@ import HeaderStyles from './HeaderStyles'
 const Header = () => {
     const classes = HeaderStyles()
     const location = useLocation()
-    const users = useSelector( state => state.users )
+    const {users, errors } = useSelector( state => state )
+
+    console.log(errors)
 
     return (
         <div>
+            <div style={{ display: errors.success === true ? 'none' : 'inline-block', background: 'red', height: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <h2>{ errors.errors }</h2>
+            </div>
             {
                 location.pathname && location.pathname === '/' ? (
                     <div className={classes.bannerContainer}>
