@@ -12,6 +12,8 @@ export default (state = initialState, action) => {
             return {...state, user: action.payload, isAuthenticated: true, role: action.payload.role}
         case "LOGOUT_USER":
             return initialState
+        case "GET_USER":
+            return state
         default:
             return state
     }

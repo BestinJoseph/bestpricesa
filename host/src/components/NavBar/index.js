@@ -19,9 +19,9 @@ const NavBar = () => {
 
     const handleSignIn = () => {
         if(auth.email !== '' && auth.password !== '') {
-            dispatch(userLogin(auth))
             setAuth({email: '', password: ''})
             setLogin(false)
+            dispatch(userLogin(auth))
         }
     }
 

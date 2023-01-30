@@ -12,6 +12,8 @@ import CarHome from '../components/CarHome'
 import DealerHome from '../components/DealerHome'
 import UserAccount from '../components/UserAccount'
 import Page404 from '../components/Page404'
+import PrivateRoutes from './PrivateRoutes'
+import PublicRoutes from './PublicRoutes'
 
 const Routers = () => {
 
@@ -25,9 +27,11 @@ const Routers = () => {
                 <Route path="/catergories/:cat" element={<CarLists />}/>
                 <Route path="/catergories/:cat/:item" element={<CarHome />}/>
                 <Route path="/dealers" element={<DealerHome />}/>
-                <Route path="/dealers/:dealer" element={<Home />}/>
+                {/* <Route path="/dealers/:dealer" element={<Home />}/> */}
                 <Route path="/about" element={<About />}/>
-                <Route path="/user" element={<UserAccount />}/>
+                <Route element={<PrivateRoutes />}>
+                    <Route path="user" element={<UserAccount />}/>
+                </Route>
                 <Route path="/*" element={<Page404 />}/>
             </Routes>
             <Footer />

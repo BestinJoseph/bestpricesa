@@ -1,20 +1,27 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, Link } from 'react-router-dom'
 
 import NavBar from '../../components/NavBar'
 import HeaderStyles from './HeaderStyles'
+import { getUser } from '../../Actions/index'
 
 const Header = () => {
     const classes = HeaderStyles()
     const location = useLocation()
     const {users, errors } = useSelector( state => state )
+    const dispatch = useDispatch()
 
-    console.log(errors)
+    useEffect(() => {
+        dispatch(getUser())
+    },[dispatch])
+
+    // console.log(errors)
+    // console.log(users)
 
     return (
         <div>
-            <div style={{ display: errors.success === true ? 'none' : 'inline-block', background: 'red', height: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{display: errors.success === true ? 'none' : 'flex', background: 'yellow', height: '3rem', flexDirection: 'column', alignItems: 'center' }}>
                 <h2>{ errors.errors }</h2>
             </div>
             {

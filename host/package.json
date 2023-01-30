@@ -37,7 +37,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.17",
     "@redux-devtools/extension": "^3.2.5",
-    "axios": "^1.2.1",
+    "axios": "^1.2.6",
     "jss-plugin-nested": "^10.9.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

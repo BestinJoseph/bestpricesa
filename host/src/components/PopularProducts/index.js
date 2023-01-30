@@ -12,7 +12,7 @@ const PropoularProducts = () => {
         
     },[populars])
     
-    // console.log(populars)
+    console.log('populars')
 
     return (
         <div style={{ width: '80vw', margin: '6rem auto 0 auto', }}>
