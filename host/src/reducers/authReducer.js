@@ -1,7 +1,7 @@
 const initialState = {
     user: {},
     isAuthenticated: false,
-    role: ''
+    role: '',
 }
 
 const userLog = { user: {name: 'Mohammed Basha'}, isAuthenticated: 'true', role: 'admin'}

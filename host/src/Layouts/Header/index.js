@@ -12,17 +12,17 @@ const Header = () => {
     const {users, errors } = useSelector( state => state )
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getUser())
-    },[dispatch])
+    // useEffect(() => {
+    //     dispatch(getUser())
+    // },[dispatch])
 
     // console.log(errors)
     // console.log(users)
 
     return (
         <div>
-            <div style={{display: errors.success === true ? 'none' : 'flex', background: 'yellow', height: '3rem', flexDirection: 'column', alignItems: 'center' }}>
-                <h2>{ errors.errors }</h2>
+            <div style={{display: errors && errors.failure === false ? 'none' : 'flex', background: 'yellow', height: '3rem', flexDirection: 'column', alignItems: 'center' }}>
+                <h2>{ errors && errors.errors }</h2>
             </div>
             {
                 location.pathname && location.pathname === '/' ? (

@@ -11,29 +11,35 @@ import SearchBox from '../../Layouts/SearchBox'
 const CarLists = () => {
     const classes = CarListsStyles()
     const navigate = useNavigate()
-    const { cars } = useSelector( state => state.cars )
+    const statedata = useSelector( state => state )
     const dispatch = useDispatch()
     const params = useParams()
+    const { cars = cars } = statedata.cars
+    const category = statedata.categories
 
     useLayoutEffect(()=>{
+        dispatch({type: 'SET_CATEGORIES', payload: { category: 'Cars'}})
         dispatch(getAllCars())
     },[dispatch])
 
-    const handleCarBtn = (car) => {
+    const handleCarBtn = (car, _id) => {
+        dispatch({type: 'SET_SUB_CATEGORIES', payload: { category: 'Carss', items: 'Range Rover', id: _id} })
         navigate(`/catergories/cars/${car}`)
     }
+
+    // console.log(category)
 
     return (
         <div style={{ margin: '3rem 0', }}>
             <div style={{border: 'none', margin: '0 auto', width: '80%' }}>
-                <SearchBox />                                
+                <SearchBox />
             </div>
             {
-                cars.length > 0 ? cars.map( (car, i) => (
+                cars && cars.length > 0 ? cars.map( (car, i) => (
                     <div className={classes.carItemContainer} key={i}>
                         <div style={{padding: '1rem 0rem 3rem 0rem', display: 'flex', }}>
                             <div style={{width: '30%', marginRight: '2rem', display: 'flex', alignItems: 'center', overflow: 'hidden'}}>
-                                <img src={`/cars/${car.image}`} alt={car.model} width="300px" height="auto" className={classes.carItemImage} />
+                                <img src={``} alt={car.model} width="300px" height="auto" className={classes.carItemImage} />
                             </div>
                             <div style={{width: '30%', }}>
                                 <h6 style={{ padding: '7px 15px', background: '#FCD271', borderRadius: '15px', display: 'inline-block', color: '#C00000', marginBottom: '.5rem', }}>Top Pick</h6>
@@ -56,7 +62,7 @@ const CarLists = () => {
                                         </div>
                                         <p>Free Test Drive</p>
                                     </div>
-                                    <div className={classes.carlistBtnContainer} onClick={() => handleCarBtn(car.model)}>
+                                    <div className={classes.carlistBtnContainer} onClick={() => handleCarBtn(car.model, car._id)}>
                                         <p style={{fontSize: '1rem', fontWeight: '700', }}>view more</p>
                                     </div>
                                 </div>

@@ -1,6 +1,5 @@
 import Cars from '../assets/data/Cars.json'
 
-
 export const getAllCars = () => async (dispatch) => {
     const cars = await Cars.cars
     dispatch({type: 'GET_ALL_CARS', payload: cars})
@@ -44,4 +43,9 @@ export const getFilterCars = (search) => async (dispatch) => {
     })
 
     dispatch({type: 'GET_FILTERED_CARS', payload: filteredCars})
+}
+
+export const getSingleCar = (id) => async (dispatch) => {
+    const car = Cars.cars.find( aCar => aCar._id === id )
+    dispatch({type: 'GET_SINGLE_CAR', payload: { car }})
 }

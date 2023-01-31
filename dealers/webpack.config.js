@@ -44,7 +44,9 @@ module.exports = {
       name: "dealers",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        './Dealer':'./src/DealerContent'
+      },
       shared: {
         ...deps,
         react: {

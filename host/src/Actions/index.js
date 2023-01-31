@@ -3,25 +3,32 @@ import { Navigate } from 'react-router-dom'
 import Users from '../assets/data/users'
 
 export const userLogin = ({email, password}) => (dispatch) => {
-    Users.users.forEach( (user) => {
-        if(user.email === email && user.email !== '') {
-            if(user.password === password && user.password !== '') {
+    console.log(email)
+    let count = 0
+    try {
+        const filteredUsername = Users.users.filter( user => user.email === email )
+
+        if (filteredUsername.length <= 0) throw "Invalid credntials"
+
+        filteredUsername.map( fUser => {
+            if (fUser.password === password) {
+                dispatch({type: 'LOGIN_USER', payload: fUser})
                 dispatch({type: 'ERROR_FALSE'})
-                dispatch({type: 'LOGIN_USER', payload: user})
-                return <Navigate to="/user" replace />
             } else {
-                dispatch({type: 'ERROR_TRUE', payload: "invalid password"})
+                throw "Invalid credntials"
             }
-        } else {
-            dispatch({type: 'ERROR_TRUE', payload: "invalid username"})
-        }
-    })
+        })
+    } catch (err) {
+        dispatch({type: 'ERROR_TRUE', payload: err})
+        return <Navigate to="/user" replace />
+    }
 }
 
 export const userLogout = () => (dispatch) => {
+    <Navigate to="/" replace />
     dispatch({type: 'ERROR_FALSE'})
     dispatch({type: 'LOGOUT_USER'})
-    return <Navigate to="/" replace />
+    // return 
 }
 
 export const getUser = () => (dispatch) => {

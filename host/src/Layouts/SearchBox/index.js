@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { VscClose } from 'react-icons/vsc'
 
@@ -11,6 +11,7 @@ const SearchBox = () => {
     const [search, setSearch] = useState({make: '', model: '', variant: '', min: '', max: ''})
     const inputs = ["make", "model", "variant", "Min", "Max"]
     const dispatch = useDispatch()
+    const { category } = useSelector( state => state.categories )
 
     useEffect(() => {
         dispatch(getFilterCars(search))
@@ -22,12 +23,12 @@ const SearchBox = () => {
         }))
     }
 
-    console.log(params)
+    // console.log(categories)
 
     return (
         <div>
             {
-                params && params.cat === 'cars' ? <React.Fragment>
+                category && category.toLowerCase() === 'cars' ? <React.Fragment>
                     <div style={{marginBottom: '1rem', }}>
                         <h3>Make and Type</h3>
                     </div>

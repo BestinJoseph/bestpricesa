@@ -1,16 +1,16 @@
 const initialState = {
-    errors: "",
-    success: true
+    errors: null,
+    failure: false
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case "ERROR_TRUE":
-            return { ...state, errors: action.payload, success: false }
+            console.log(action.type)
+            return { ...state, errors: action.payload, failure: true }
         case "ERROR_FALSE":
-            const st = { ...state, ...initialState}
-            console.log(st)
-            return { ...state, ...initialState}
+            console.log(action.type)
+            return { ...state, errors: null, failure: false}
         default:
             return initialState
     }
