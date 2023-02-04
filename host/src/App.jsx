@@ -2,12 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux"
 import { PersistGate } from 'redux-persist/lib/integration/react'
+// import dotenv from 'dotenv'
 
 import "./index.css";
 
 import Routers from "./Routers"
 import {persistor, store} from './Store'
 import Loading from './components/Loading'
+
+// dotenv.config()
 
 const App = () => (
     <div className="container">

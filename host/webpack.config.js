@@ -1,6 +1,9 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-// const webpack = require('webpack')
+const webpack = require('webpack')
+// import dotenv from 'dotenv'
+const dotenv = require("dotenv")
+dotenv.config()
 
 const deps = require("./package.json").dependencies;
 
@@ -17,7 +20,9 @@ module.exports = {
 
   devServer: {
     port: 3000,
+    host:"0.0.0.0",
     historyApiFallback: true,
+    watchOptions: { poll: true },
   },
 
   module: {
@@ -82,6 +87,11 @@ module.exports = {
       favicon: './public/favicon.png',
       assets: './src/assets',
       publicPath: urlPath,
+    }),
+    new webpack.DefinePlugin({
+      process: {
+        env: JSON.stringify(process.env)
+      }
     })
   ],
 };

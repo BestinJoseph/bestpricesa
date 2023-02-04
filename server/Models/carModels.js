@@ -8,6 +8,16 @@ const carsSchema = mongoose.Schema({
     make: {
         type: String,
         require: true
+<<<<<<< HEAD
+=======
+    },
+    specification: {
+        type: Object,
+    },
+    price: {
+        type: Number,
+        require: true
+>>>>>>> a137a05 (update 20230204)
     },
     specification: {
         type: {},
