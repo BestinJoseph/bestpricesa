@@ -1,12 +1,12 @@
-FROM node:18-alpine
+FROM node:18-alpine as build
 
-WORKDIR /usr/src/dealers
+WORKDIR /dealers
+ENV PATH /host/node_modules/.bin:$PATH
+COPY package*.json .
 
-COPY package*.json ./
+RUN npm install
 
-RUN npm i
-
-COPY . ./
+COPY . .
 
 EXPOSE 3001
 

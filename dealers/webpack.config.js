@@ -1,10 +1,13 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+// const webpack = require('webpack')
+
+const urlPath = process.env.NODE_ENV === 'development' ? "http://localhost:3001/" : "http://localhost:3001/"
 
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:3001/",
+    publicPath: urlPath,
   },
 
   resolve: {

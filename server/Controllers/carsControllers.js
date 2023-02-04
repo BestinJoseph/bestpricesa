@@ -5,6 +5,15 @@ export const getAllCars = async (req, res) => {
         const cars = Cars.find()
         res.status(200).json({errors: null, data: {msg: 'list of cars goes here'}})
     } catch (err) {
+        console.log(err.code)
         res.status(200).json({errors: err, data: null, success: true})
+    }
+}
+
+export const postCar = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        
     }
 }

@@ -2,13 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./index.css";
+import Routers from "./Routers";
 
 const App = () => (
-  <div className="container">
-    <div>Name: dealers</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
+  <div>
+    <Routers />
   </div>
 );
 ReactDOM.render(<App />, document.getElementById("app"));

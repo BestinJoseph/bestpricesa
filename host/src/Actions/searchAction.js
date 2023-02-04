@@ -1,8 +1,19 @@
+import axios from 'axios'
 import Cars from '../assets/data/Cars.json'
+// import dotenv from 'dotenv'
+
+const apiUrl = process.env.REACT_APP_API_URL
 
 export const getAllCars = () => async (dispatch) => {
-    const cars = await Cars.cars
-    dispatch({type: 'GET_ALL_CARS', payload: cars})
+    try {
+        const cars = await axios.get(`${apiUrl}/cars`)
+        dispatch({type: 'GET_ALL_CARS', payload: cars})
+        console.log(cars.data)
+    } catch (err) {
+        console.log(err)
+        dispatch({type: 'ERROR_TRUE', payload: err})
+    }
+    // const cars = await Cars.cars
 }
 
 export const getFilterCars = (search) => async (dispatch) => {
