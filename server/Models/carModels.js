@@ -5,11 +5,18 @@ const carsSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    make: String,
-    specification: {
+    make: {
         type: String,
+        require: true
     },
-    images: []
+    specification: {
+        type: {},
+    },
+    price: {
+        type: Number,
+        require: true
+    },
+    images: [],
 }, {timeStamps: true})
 
 export default mongoose.model('cars', carsSchema)

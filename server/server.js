@@ -17,6 +17,7 @@ import './authenticate.js'
 import host from './Routers/index.js'
 import users from './Routers/userRouter.js'
 import cars from './Routers/carsRouter.js'
+import dealers from './Routers/dealersRouter.js'
 
 const app = express()
 
@@ -41,5 +42,6 @@ app.use('/images', express.static('public/images'))
 app.use('/api', host)
 app.use('/api/auth', users)
 app.use('/api/cars', cars)
+app.use('/api/dealers', dealers)
 
 app.listen(port, () => console.log('server running on ' + port ))
