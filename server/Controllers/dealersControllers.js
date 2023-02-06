@@ -29,7 +29,7 @@ export const postDealer = async (req, res) => {
 }
 
 export const updateDealerCars = async (req, res) => {
-    // console.log(req.body)
+    console.log(req.params._id)
     try {
         Dealer.findByIdAndUpdate( req.params._id, { $push: { cars: {car: req.body.car, price: req.body.price, stock: req.body.stock} } }, {new: true, useFindAndModify: false}).then ( dealer => {
             if (dealer) {

@@ -14,8 +14,6 @@ services:
     volumes:
       - "./host:/usr/src/host"
       - /usr/src/host/node_modules
-<<<<<<< HEAD
-<<<<<<< HEAD
   dealers:
     container_name: best-price-dealers
     build:
@@ -29,26 +27,6 @@ services:
     volumes:
       - "./dealers:/usr/src/dealers"
       - /usr/src/host/node_modules
-=======
-=======
->>>>>>> a137a05706b2bc203f994e7d052219442d071bf9
-  # dealers:
-  #   container_name: best-price-dealers
-  #   build:
-  #     context: ./dealers
-  #     dockerfile: Dockerfile.dev
-  #   environment:
-  #     # - CHOKIDAR_USEPOLLING=true
-  #     - WATCHPACK_POLLING=true
-  #   ports:
-  #     - "3001:3001"
-  #   volumes:
-  #     - "./dealers:/usr/src/dealers"
-  #     - /usr/src/dealers/node_modules
-<<<<<<< HEAD
->>>>>>> a137a05 (update 20230204)
-=======
->>>>>>> a137a05706b2bc203f994e7d052219442d071bf9
   # admin:
   #   container_name: best-price-admin
   #   build:

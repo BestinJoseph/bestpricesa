@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import passport from 'passport'
 import cookieparser from 'cookie-parser'
 import session from 'express-session'
+import { fileURLToPath } from 'url'
 
 if(process.env.NODE_ENV === 'development') {
     dotenv.config()
@@ -22,6 +23,7 @@ import dealers from './Routers/dealersRouter.js'
 const app = express()
 
 const port = process.env.PORT || 8000
+const __dirname = fileURLToPath(import.meta.url)
 
 app.use(cookieparser(process.env.COOKIE_SECRET))
 app.use(express.json({}))
@@ -37,7 +39,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(express.static('public'))
-app.use('/images', express.static('public/images'))
+app.use(express.static(`${__dirname}/images`))
 
 app.use('/api', host)
 app.use('/api/auth', users)

@@ -8,6 +8,13 @@ const carsSchema = mongoose.Schema({
     make: {
         type: String,
     },
+    specification: {
+        type: {}
+    },
+    price: {
+        type: Number,
+        default: 0
+    },
     images: [],
 }, {timeStamps: true})
 

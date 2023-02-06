@@ -5,22 +5,12 @@ export const getAllCars = async (req, res) => {
         const cars = await Cars.find()
         res.status(200).json({errors: null, data: { cars }, success: true})
     } catch (err) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        res.status(200).json({errors: err, data: null, success: false})
-=======
-=======
->>>>>>> a137a05706b2bc203f994e7d052219442d071bf9
-        console.log(err.code)
         res.status(200).json({errors: err, data: null, success: true})
->>>>>>> a137a05 (update 20230204)
     }
 }
 
 export const postCar = async (req, res) => {
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
         Cars.create({ ...req.body }).then( car => {
             if (car) {
                 res.status(200).json({errors: null, data: { car }, success: true})
@@ -30,15 +20,20 @@ export const postCar = async (req, res) => {
         })
     } catch (err) {
         res.status(200).json({errors: err, data: null, success: false})
-=======
-        
+    }
+}
+
+export const updateCarImages = async (req, res) => {
+    console.log(req.files)
+    try {
+        Cars.findByIdAndUpdate(req.params._id, { $push: { images: req.file.filename } }, { new: true }).then( car => {
+            if (car) {
+                res.status(200).json({errors: null, data: { car }, success: true})
+            } else {
+                res.status(200).json({errors: err, data: { msg: 'something went wrong!'}, success: false})
+            }
+        })
     } catch (err) {
-        
->>>>>>> a137a05 (update 20230204)
-=======
-        
-    } catch (err) {
-        
->>>>>>> a137a05706b2bc203f994e7d052219442d071bf9
+        res.status(200).json({errors: err, data: null, success: false})
     }
 }
