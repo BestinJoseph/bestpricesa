@@ -5,6 +5,7 @@ import passport from 'passport'
 import cookieparser from 'cookie-parser'
 import session from 'express-session'
 import { fileURLToPath } from 'url'
+import path from 'path'
 
 if(process.env.NODE_ENV === 'development') {
     dotenv.config()
@@ -38,8 +39,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.static('public'))
-app.use(express.static(`${__dirname}/images`))
+// app.use(express.static('public'))
+// app.use(express.static(`${__dirname}/images`))
+app.use('/api/images', express.static(path.join('./public/images')))
 
 app.use('/api', host)
 app.use('/api/auth', users)

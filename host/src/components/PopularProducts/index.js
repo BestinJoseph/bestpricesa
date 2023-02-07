@@ -22,7 +22,7 @@ const PropoularProducts = () => {
             <div className={classes.popularItemContainer}>
                 {
                     populars && populars.map( (popular, i) => (
-                        <div key={i} className={classes.popularItem} style={{ backgroundImage: `url('/images/cars/${popular.image}')`, color: 'white', }}>
+                        <div key={i} className={classes.popularItem} style={{ backgroundImage: `url('${process.env.REACT_APP_API_URL}/images/cars/${popular.image}')`, color: 'white', }}>
                             {/* <img src={`/cars/${popular.image}`} height="auto" alt="well" style={{ poistion: 'absolute', top: 0, left: 0, zIndex: '-2rem', }}/> */}
                             <div>hellow</div>
                             <div>well done</div>
