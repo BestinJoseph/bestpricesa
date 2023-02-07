@@ -22,7 +22,8 @@ module.exports = {
     port: 3000,
     host:"0.0.0.0",
     historyApiFallback: true,
-    watchOptions: { poll: true },
+    // watchOptions: { poll: true },
+    hot: 'only',
   },
 
   module: {

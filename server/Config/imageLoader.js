@@ -2,13 +2,14 @@ import multer from 'multer'
 import path from 'path'
 
 const storage = multer.diskStorage({
-    destination: './public/uploads/',
-    filename: function (req, file, cb) {
-        if(!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-            cb(null, `IMAGE-${Date.now()}.${path.extname(file.originalname)}` )
-            return console.log('nice....')
+    destination: (req, file, cb) => {
+        cb(null, 'public')
+    },
+    filename: (req, file, cb) => {
+        if(!!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+            return cb(null, `IMAGE-${Date.now()}${path.extname(file.originalname)}` )
         }
-        cb(undefined, true)
+        cb(new Error('No file uploaded'), true)
     }
 })
 

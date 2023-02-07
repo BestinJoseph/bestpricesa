@@ -24,7 +24,6 @@ export const postCar = async (req, res) => {
 }
 
 export const updateCarImages = async (req, res) => {
-    console.log(req.files)
     try {
         Cars.findByIdAndUpdate(req.params._id, { $push: { images: req.file.filename } }, { new: true }).then( car => {
             if (car) {

@@ -5,6 +5,8 @@ import passport from 'passport'
 import cookieparser from 'cookie-parser'
 import session from 'express-session'
 import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
 
 if(process.env.NODE_ENV === 'development') {
     dotenv.config()
@@ -23,7 +25,8 @@ import dealers from './Routers/dealersRouter.js'
 const app = express()
 
 const port = process.env.PORT || 8000
-const __dirname = fileURLToPath(import.meta.url)
+const __fileName = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__fileName)
 
 app.use(cookieparser(process.env.COOKIE_SECRET))
 app.use(express.json({}))
@@ -38,12 +41,23 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.static('public'))
-app.use(express.static(`${__dirname}/images`))
+//static images folder
+app.use('/api/images', express.static('./public/images'))
+// app.use(express.static(__dirname + '/images'))
+// app.use(express.static('images'))
 
 app.use('/api', host)
 app.use('/api/auth', users)
 app.use('/api/cars', cars)
 app.use('/api/dealers', dealers)
+
+// app.get('/images/:image', (req, res) => {
+//     console.log('nice....')
+//     fs.readFile('public', (err, data) => {
+//         if(err) return
+//         res.writeHead(200, {'Content-Type': 'image/png'})
+//         res.end(data, 'utf8')
+//     })
+// })
 
 app.listen(port, () => console.log('server running on ' + port ))

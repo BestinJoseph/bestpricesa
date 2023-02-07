@@ -15,7 +15,9 @@ const carsSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    images: [],
+    images: [{
+        type: {}
+    }],
 }, {timeStamps: true})
 
 export default mongoose.model('cars', carsSchema)
