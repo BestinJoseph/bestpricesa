@@ -27,7 +27,7 @@ const CarLists = () => {
         navigate(`/catergories/cars/${car}`)
     }
 
-    // console.log(category)
+    console.log(cars)
 
     return (
         <div style={{ margin: '3rem 0', }}>
@@ -46,7 +46,7 @@ const CarLists = () => {
                                 <h3>{car.make}<span> {car.model}</span></h3>
                                 <p style={{color: 'green'}}>High Demand car</p>
                                 <div style={{marginTop: '1rem', }}>
-                                    <div style={{ display: 'flex', }}>
+                                    {/* <div style={{ display: 'flex', }}>
                                         {
                                             Object.entries(car.spec).map( (val, i) => (
                                                 <div key={i} style={{ display: 'flex', padding: '.5rem 1rem', border: '1px solid gray', marginRight: '.75rem', borderRadius: '10px',  }}>
@@ -54,7 +54,7 @@ const CarLists = () => {
                                                 </div>
                                             ))
                                         }
-                                    </div>
+                                    </div> */}
                                     <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', }}>
                                         <div style={{ marginRight: '2rem',}}>
                                             <p style={{color: 'blue', }}>best price</p>
