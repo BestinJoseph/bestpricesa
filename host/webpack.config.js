@@ -23,7 +23,10 @@ module.exports = {
     host:"0.0.0.0",
     historyApiFallback: true,
     // watchOptions: { poll: true },
+<<<<<<< HEAD
     hot: 'only',
+=======
+>>>>>>> 4704d09a4afd4885fb0fe3c6643ee65c4f658fe1
   },
 
   module: {

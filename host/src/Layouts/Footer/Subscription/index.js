@@ -11,7 +11,7 @@ const Subscription = () => {
     return (
         <div style={{background: '#FCD271', display: 'flex', alignItems: 'center', padding: '4rem 0' }}>
             <div style={{ display: 'grid', gridTemplateColumns:'1fr 4fr' ,width: '80vw', margin: '0 auto', }}>
-                <img src="/logo.svg" alt="Best Price" style={{ height: '15rem', fill: 'white', }}/>
+                <img src={`${process.env.REACT_APP_API_URL}/images/logo.svg`} alt="Best Price" style={{ height: '15rem', fill: 'white', }}/>
                 <div style={{ width: '38rem', display: 'grid', gridTemplateRows: `repeat(4, 3rem)` }}>
                     <h3>stay with us</h3>
                     <p style={{ fontSize: '1rem', }}>We handpick the very best deals, trends and product news - making sure you never miss a thing.</p>
