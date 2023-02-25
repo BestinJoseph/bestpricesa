@@ -1,8 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import riyadh from '../../../assets/images/riyadh.png'
-import location from '../../../assets/images/location.png'
 import { dealer001, dealer002, dealer003, dealer004, dealer005, dealer006, dealer007 } from '../../../assets'
 import DealersStyles from './DealersStyles'
 import { BsFillPinMapFill } from 'react-icons/bs'

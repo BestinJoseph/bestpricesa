@@ -44,7 +44,10 @@ module.exports = {
       name: "admin",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        './AdminContent':'./src/AdminContent',
+        './AdminDashBoard': './src/Pages/AdminDashBoard'
+      },
       shared: {
         ...deps,
         react: {

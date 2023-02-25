@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { VscAccount } from 'react-icons/vsc'
 import { useDispatch } from 'react-redux'
 import { userLogout } from '../../Actions'
@@ -7,8 +7,9 @@ import UserAccountStyles from './UserAccountStyles'
 
 const UserAccount = () => {
     const classes = UserAccountStyles()
-    const tabs = ["Account Overviews", "Edit Profile", "Change password", "Notification Setting", "LogOut"]
+    const tabs = ["Account Overviews", "role", "Edit Profile", "Change password", "Notification Setting", "LogOut"]
     const dispatch = useDispatch()
+    const role = useState('dealer')
 
     const handleTab = (tab) => {
         if( tab === 'LogOut' ) {
@@ -34,9 +35,13 @@ const UserAccount = () => {
                     </div>
                     <ul style={{ listStyle: 'none', padding: '0', }}>
                         {
-                            tabs.map( (tab, i) => (
-                                <li key={i} className={classes.tabItem} onClick={() => handleTab(tab)}>{tab}</li>
-                            ))
+                            tabs.map( (tab, i) => {
+                                if ( tab === 'role') {
+                                    return role === 'dealer' ? <li key={i} className={classes.tabItem} onClick={() => handleTab(tab)}>Dealer</li> : null
+                                } else {
+                                    return <li key={i} className={classes.tabItem} onClick={() => handleTab(tab)}>{tab}</li>
+                                }
+                            })
                         }
                     </ul>
                 </div>

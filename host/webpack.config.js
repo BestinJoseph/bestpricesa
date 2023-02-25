@@ -23,10 +23,7 @@ module.exports = {
     host:"0.0.0.0",
     historyApiFallback: true,
     // watchOptions: { poll: true },
-<<<<<<< HEAD
     hot: 'only',
-=======
->>>>>>> 4704d09a4afd4885fb0fe3c6643ee65c4f658fe1
   },
 
   module: {
@@ -66,7 +63,8 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         host: `host@${urlPath}remoteEntry.js`,
-        dealer: `dealer@http://localhost:3001/remoteEntry.js`
+        Dealer: `dealer@http://localhost:3001/remoteEntry.js`,
+        Admin: `admin@http://localhost:3002/remoteEntry.js`
       },
       exposes: {
         "./Header":"./src/Layouts/Header",
